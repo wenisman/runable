@@ -1,0 +1,18 @@
+version: '3'
+services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - db-data:/data/db
+
+  api:
+    build: api
+    ports: 
+      - 9000:9000
+    volumes:
+      - ./api:/opt/runable/api
+
+volumes:
+  db-data:

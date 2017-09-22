@@ -1,0 +1,17 @@
+FROM node:latest
+
+WORKDIR /opt/runable/api
+
+ADD package.json .
+ADD package-lock.json .
+ADD .eslintrc .
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 9000
+
+VOLUME [ "/opt/runable/api" ]
+
+CMD ["npm", "start"]
