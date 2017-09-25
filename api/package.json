@@ -20,8 +20,11 @@
     "sinon": "^3.3.0"
   },
   "dependencies": {
+    "config": "^1.26.2",
     "express": "^4.15.4",
     "folktale": "^2.0.1",
+    "logfmt": "^1.2.0",
+    "mongo": "^0.1.0",
     "ramda": "^0.24.1"
   }
 }
