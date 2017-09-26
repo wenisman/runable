@@ -17,7 +17,7 @@ SwaggerExpress.create(config, (err, swaggerExpress) => {
   // install middleware
   swaggerExpress.register(app);
 
-    /**
+  /**
      * set up standard logging for all requests
      */
     app.use(logfmt.requestLogger({elapsed: 'request.time'}, (req, res) => {
@@ -34,19 +34,6 @@ SwaggerExpress.create(config, (err, swaggerExpress) => {
         var err = new Error('Not Found');
         err.status = 404;
         next(err);
-    });
-
-    /**
-     * default error handler, hide the stack trace for all environments but dev
-     */
-    app.use(function(err, req, res, next) {
-        res.status(err.status || 500).send('error');
-/*
-        res.render('error', {
-            message: err.message,
-            error: app.get('env') === 'dev' ? err : {}
-        });
-*/
     });
 
     const port = process.env.PORT || 9000;

@@ -8,8 +8,7 @@ const listEvents = (req, res) => {
       end: req.swagger.params.endDate.value || Date.now()
     }
   };
-  res.json('sample data');
-  //res.json(eventDb.getEvents('events', data).run().promise());
+  res.json(eventDb.getEvents('events', data).run().promise());
 };
 
 module.exports = {
