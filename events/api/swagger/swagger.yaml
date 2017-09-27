@@ -19,7 +19,7 @@ paths:
     get:
       description: Returns a list of events by date and location
       # used as the method name of the controller
-      operationId: listEvents
+      operationId: search
       parameters:
         - name: location
           in: query

@@ -17,7 +17,7 @@ SwaggerExpress.create(config, (err, swaggerExpress) => {
   // install middleware
   swaggerExpress.register(app);
 
-  /**
+    /**
      * set up standard logging for all requests
      */
     app.use(logfmt.requestLogger({elapsed: 'request.time'}, (req, res) => {

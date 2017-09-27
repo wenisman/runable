@@ -12,6 +12,6 @@ COPY . .
 
 EXPOSE 9000
 
-VOLUME [ "/opt/runable/api" ]
+VOLUME [ "/opt/runable/events" ]
 
 CMD ["npm", "start"]

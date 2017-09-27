@@ -1,6 +1,7 @@
 const { task } = require('folktale/concurrency/task');
 
 const taskify = (fn, context) => {
+  return function() {
     const args = Array.from(arguments);
     return task((resolver) => {
       args.push((err, data) => {
@@ -13,5 +14,6 @@ const taskify = (fn, context) => {
       fn.apply(context, args);
     });
   };
+};
 
 module.exports = taskify;

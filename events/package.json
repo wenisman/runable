@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "test": "istanbul cover node_modules/.bin/_mocha -- -u exports -R spec -r test/setup.js test/*{,*/}*.js",
-    "watch": "nodemon --ignore node_modules/ --exec 'npm run test && node src/index.js'",
+    "watch": "nodemon --ignore node_modules/ --exec 'npm run test && node index.js'",
     "start": "npm run watch"
   },
   "devDependencies": {
@@ -17,7 +17,8 @@
     "mocha": "^3.5.3",
     "nodemon": "^1.12.1",
     "proxyquire": "^1.8.0",
-    "sinon": "^3.3.0"
+    "sinon": "^3.3.0",
+    "supertest": "^3.0.0"
   },
   "dependencies": {
     "config": "^1.26.2",

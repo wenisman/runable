@@ -1,6 +1,6 @@
 const eventDb = require('../lib/events');
 
-const listEvents = (req, res) => {
+const search = (req, res) => {
   let data = {
     location: req.swagger.params.location.value,
     date: {
@@ -12,5 +12,5 @@ const listEvents = (req, res) => {
 };
 
 module.exports = {
-  listEvents
+  search
 };
