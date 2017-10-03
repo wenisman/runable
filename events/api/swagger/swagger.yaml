@@ -45,6 +45,34 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+  /events/upload:
+    x-swagger-router-controller: events
+    post:
+      operationId: upload
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: the event to upload
+          schema:
+            type: object
+            required:
+              - location
+              - date
+            properties:
+              location: 
+                type: string
+              date:
+                type: string
+      responses:
+        201:
+          description: created
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+      
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions

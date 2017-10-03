@@ -7,12 +7,14 @@ services:
     volumes:
       - db-data:/data/db
 
-  api:
-    build: api
+  events:
+    build: events
     ports: 
       - 9000:9000
     volumes:
-      - ./api:/opt/runable/api
+      - ./events:/opt/runable/events
+    links:
+      - mongo
 
 volumes:
   db-data:

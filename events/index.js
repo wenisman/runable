@@ -4,6 +4,9 @@ const app = require('express')();
 const SwaggerExpress = require('swagger-express-mw');
 const logfmt = require('logfmt');
 
+// prewarm the connection
+const db = require('./api/lib/mongo');
+
 // required for testing 
 module.exports = app;
 

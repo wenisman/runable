@@ -1,13 +1,20 @@
 const db = require('../lib/mongo');
 
-const getEvents = (name, data) => {
-  return db.find('events', {
+const getEvents = (data) => {
+  var temp = db.find('events', {
         type: 'event',
         date: { $gte: data.date.start, $lte: data.date.end },
         location: data.location
-      }).run().promise();
+      });
+
+  return temp
+};
+
+const saveEvents = (data) => {
+  return db.save('events', data);
 };
 
 module.exports = {
-  getEvents
+  getEvents,
+  saveEvents
 };

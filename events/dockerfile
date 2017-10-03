@@ -1,6 +1,6 @@
 FROM node:latest
 
-WORKDIR /opt/runable/api
+WORKDIR /opt/runable/events
 
 ADD package.json .
 ADD package-lock.json .
