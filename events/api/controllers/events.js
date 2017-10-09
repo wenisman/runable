@@ -3,20 +3,21 @@ const eventDb = require('../lib/events');
 
 const setDate = (swaggerValue, defaultDate) => {
   if (!swaggerValue) {
-    return defaultDate.toUTCString();
+    return defaultDate;
   }
 
-  return (Date.parse(swaggerValue.value)).toUTCString();
+  return Date.parse(swaggerValue.value);
 }
 
 const search = async (req, res) => {
   console.log(req.swagger.params.startDate.value);
-  let currentDate = Date.now();
+  let startDate = new Date();
+  let endDate = new Date()
   let data = {
     location: req.swagger.params.location.value,
     date: {
-      start: setDate(req.swagger.params.startDate.value, currentDate),
-      end: setDate(req.swagger.params.endDate.value, currentDate.setFullYear(currentDate.getFullYear() + 1))
+      start: setDate(req.swagger.params.startDate.value, startDate),
+      end: setDate(req.swagger.params.endDate.value, new Date(endDate.setFullYear(endDate.getFullYear() + 1)))
     }
   };
   console.log('api query:', data);
