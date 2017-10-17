@@ -8,6 +8,8 @@ required:
 properties:
   login_id: 
     type: string
+  password_hash: 
+    type: string
   token:
     type: string
   first_name: 

@@ -32,6 +32,7 @@
     "folktale": "^2.0.1",
     "logfmt": "^1.2.0",
     "mongo": "^0.1.0",
+    "object-hash": "^1.2.0",
     "ramda": "^0.24.1",
     "swagger-express-mw": "^0.7.0"
   }
