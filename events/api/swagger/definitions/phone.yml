@@ -1,0 +1,8 @@
+type: object
+properties:
+  countrycode: 
+    type: string
+  areacode: 
+    type: string
+  number:
+    type: string

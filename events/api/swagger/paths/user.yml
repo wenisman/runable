@@ -1,0 +1,29 @@
+login:
+  x-swagger-router-controller: user
+  post:
+    operationId: login
+    consumes:
+      - application/json    
+    parameters:
+      - in: body
+        name: body
+        description: The login details of the user
+        schema:
+          type: object
+          required:
+            - login_id
+            - password
+          properties:
+            login_id: 
+              type: string
+            password:
+              type: string
+    responses:
+      200:
+        description: created
+        schema:
+          $ref: "#/definitions/user"
+      default:
+        description: Error
+        schema:
+          $ref: "#/definitions/ErrorResponse"

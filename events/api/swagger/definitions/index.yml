@@ -1,0 +1,14 @@
+event:
+  $ref: ./event.yml
+user:
+  $ref: ./user.yml
+phone:
+  $ref: ./phone.yml
+registration:
+  $ref: ./registration.yml
+ErrorResponse:
+  required:
+    - message
+  properties:
+    message:
+      type: string

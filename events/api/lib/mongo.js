@@ -12,7 +12,6 @@ connect(config.get('mongo.url'), config.get('mongo.connection')).run().future().
 
 
 const find = async (collection, query) => {
-  console.log(query);
   var create = taskify(mongodb.createCollection, mongodb);
   return await create(collection)
       .chain(c => {
