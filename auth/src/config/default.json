@@ -1,4 +1,11 @@
 {
+  "passport": {
+    "secret": "ZF5VC*V5YRoieNld&p15"
+  },
+  "jwt": {
+    "secret": "ih$4OANAxnhsKNRmNyg%",
+    "ttl": 600
+  },
   "mongo": {
     "url": "mongodb://mongo:27017/runable",
     "connection_options": {
@@ -9,17 +16,17 @@
     "facebook": {
       "clientId": "",
       "clientSecret": "",
-      "callbackPath": "/auth/facebook/callback"
+      "callbackUrl": "/auth/facebook/callback"
     },
     "google": {
       "clientId": "",
       "clientSecret": "",
-      "callbackPath": "/auth/google/callback"
+      "callbackUrl": "/auth/google/callback"
     },
     "twitter": {
       "clientId": "",
       "clientSecret": "",
-      "callbackPath": "/auth/twitter/callback"
+      "callbackUrl": "/auth/twitter/callback"
     }
   }
 }

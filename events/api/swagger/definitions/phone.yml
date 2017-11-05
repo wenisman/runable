@@ -1,8 +1,8 @@
 type: object
 properties:
-  countrycode: 
+  country_code: 
     type: string
-  areacode: 
+  area_code: 
     type: string
   number:
     type: string

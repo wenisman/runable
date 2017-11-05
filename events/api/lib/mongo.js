@@ -6,7 +6,7 @@ const Task = require('folktale/concurrency/task');
 const connect = taskify(client.connect, client);
 
 let mongodb = null;
-connect(config.get('mongo.url'), config.get('mongo.connection')).run().future().map(result => {
+connect(config.get('mongo.url'), config.get('mongo.connection_options')).run().future().map(result => {
   mongodb = result;
 });
 

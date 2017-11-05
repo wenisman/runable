@@ -10,7 +10,6 @@ const setDate = (swaggerValue, defaultDate) => {
 }
 
 const search = async (req, res) => {
-  console.log(req.swagger.params.startDate.value);
   let startDate = new Date();
   let endDate = new Date()
   let data = {
@@ -20,7 +19,6 @@ const search = async (req, res) => {
       end: setDate(req.swagger.params.endDate.value, new Date(endDate.setFullYear(endDate.getFullYear() + 1)))
     }
   };
-  console.log('api query:', data);
   var output = await eventDb.getEvents(data);
   res.json(output);
 };

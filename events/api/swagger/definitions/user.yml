@@ -1,14 +1,10 @@
 type: object
 required:
   - login_id
-  - first_name
-  - surname
-  - address
-  - contact
 properties:
   login_id: 
     type: string
-  password_hash: 
+  password: 
     type: string
   token:
     type: string
@@ -36,7 +32,7 @@ properties:
       country:
         type: string
       postcode:
-        type: integer
+        type: string
   contact:
     type: object
     properties:

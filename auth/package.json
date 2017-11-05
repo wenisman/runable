@@ -1,0 +1,46 @@
+{
+  "name": "runnable-auth",
+  "version": "1.0.0",
+  "description": "the auth api for runnable",
+  "main": "index.js",
+  "dependencies": {
+    "config": "^1.27.0",
+    "cookieparser": "^0.1.0",
+    "eslint-plugin-async-await": "^0.0.0",
+    "express-session": "^1.15.6",
+    "jws": "^3.1.4",
+    "mongoose": "^4.12.3",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
+    "passport-google-oauth": "^1.0.0",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.4"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.7.2",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-async-await": "0.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^3.5.3",
+    "nodemon": "^1.12.1",
+    "proxyquire": "^1.8.0",
+    "sinon": "^3.3.0",
+    "supertest": "^3.0.0"
+  },
+  "scripts": {
+    "test": "istanbul cover node_modules/.bin/_mocha -- -u exports -R spec -r test/setup.js test/*{,*/}*.js",
+    "watch": "nodemon --ignore node_modules/ --exec 'npm run test && node index.js'",
+    "start": "npm run watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/wenisman/runable"
+  },
+  "author": "geoff tsai",
+  "license": "ISC"
+}
