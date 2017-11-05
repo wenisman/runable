@@ -3,6 +3,7 @@ const address = require('./address');
 const phone = require('./phone');
 
 let event = mongoose.Schema({
+  name: String,
   address: address.schema,
   contact: {
     email: String,

@@ -1,43 +1,33 @@
 {
-  "name": "runable-api",
+  "name": "events",
   "version": "0.0.1",
   "description": "",
-  "author": "geoffrey tsai",
+  "author": "Geoffrey Tsai",
   "license": "MIT",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "eslint": "eslint --fix src test",
     "test": "istanbul cover node_modules/.bin/_mocha -- -u exports -R spec -r test/setup.js test/*{,*/}*.js",
-    "watch": "nodemon --ignore node_modules/ --exec 'npm run test && node index.js'",
-    "start": "npm run watch"
+    "watch": "nodemon --ignore out/ --ignore node_modules/ --exec 'npm run eslint && npm run test' ",
+    "server": "nodemon --ignore node_modules/ src/index.js",
+    "start": "npm run watch & sleep 3000 && npm run server"
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "eslint": "^4.7.2",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-async-await": "0.0.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.2.0",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "istanbul": "^1.1.0-alpha.1",
-    "mocha": "^3.5.3",
+    "eslint": "^4.10.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.0.1",
     "nodemon": "^1.12.1",
     "proxyquire": "^1.8.0",
-    "sinon": "^3.3.0",
-    "supertest": "^3.0.0"
+    "sinon": "^4.1.1"
   },
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
-    "config": "^1.26.2",
-    "cookieparser": "^0.1.0",
-    "express": "^4.15.4",
-    "folktale": "^2.0.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
     "logfmt": "^1.2.0",
     "mongo": "^0.1.0",
-    "mongoose": "^4.12.3",
-    "oauth": "^0.9.15",
+    "mongoose": "^4.13.0",
     "passport": "^0.4.0",
-    "ramda": "^0.24.1",
-    "swagger-express-mw": "^0.7.0"
+    "swagger-ui-express": "^2.0.9"
   }
 }

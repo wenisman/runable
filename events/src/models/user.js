@@ -3,17 +3,17 @@ const bcrypt = require('bcrypt-nodejs');
 
 const address = require('./address');
 const phone = require('./phone');
-const registration = require('./Registration');
+const registration = require('./registration');
 
 let user = mongoose.Schema({
   first_name: String,
   surname: String,
-  address: address.schema,
   account: {
     local: {
       id: String,
       password: String,
-      token: String
+      token: String,
+      email: String
     },
     google: {
       id: String,
@@ -31,7 +31,7 @@ let user = mongoose.Schema({
       id: String,
       token: String,
       user_name: String,
-      display_name:String    
+      display_name:String
     }
   },
   contact: {
@@ -44,13 +44,5 @@ let user = mongoose.Schema({
     registration.schema
   ]
 });
-
-user.methods.generateHash = function(password) {
-  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
-
-user.methods.validPassword = function(password) {
-  return bcrypt.compareSync(password, this.local.password);
-};
 
 module.exports = mongoose.model('User', user);

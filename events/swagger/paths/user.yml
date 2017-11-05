@@ -1,0 +1,68 @@
+login:
+  post:
+    operationId: login
+    consumes:
+      - application/json    
+    parameters:
+      - in: body
+        name: body
+        description: The login details of the user
+        schema:
+          type: object
+          required:
+            - login_id
+            - password
+          properties:
+            login_id: 
+              type: string
+            password:
+              type: string
+    responses:
+      200:
+        description: created
+        schema:
+          $ref: "#/definitions/user"
+      default:
+        description: Error
+        schema:
+          $ref: "#/definitions/ErrorResponse"
+
+details:
+  get:
+    description: Returns the details of the specified user
+    # used as the method name of the controller
+    operationId: details
+    consumes:
+      - application/json
+    parameters:
+      - name: location
+        in: query
+        description: The location of the event
+        required: true
+        type: string
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/user"
+    
+registerevent:
+  post:
+    description: register the user for the event
+    consumes: application/json
+    parameters:
+      - in: body
+        name: body
+        description: The login details of the user
+        schema:
+          type: object
+          required:
+            - userId
+            - eventId
+            - pricePaid
+          properties:
+            login_id: 
+              type: string
+            password:
+              type: string
+ 

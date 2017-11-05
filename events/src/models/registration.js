@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 let registration = mongoose.Schema({
   event_id: String,
   price_paid: Number,

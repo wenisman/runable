@@ -45,4 +45,4 @@ properties:
   registrations:
     type: array
     items:
-      $ref: "#/definitions/registration"        
+      $ref: "#/definitions/registration" 

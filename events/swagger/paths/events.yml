@@ -1,5 +1,4 @@
 search:
-  x-swagger-router-controller: events
   get:
     description: Returns a list of events by date and location
     # used as the method name of the controller
@@ -35,7 +34,6 @@ search:
           $ref: "#/definitions/ErrorResponse"
 
 upload:
-  x-swagger-router-controller: events
   post:
     operationId: upload
     consumes:
