@@ -1,12 +1,12 @@
 const app = require('express')();
-const events = require('./lib/events');
-const models = require('./models');
-const user = require('./lib/user');
 const config = require('config');
 const bodyParser = require('body-parser');
-const logfmt = require('logfmt');
-//const swaggerUi = require('swagger-ui-express');
-//const swaggerDocument = require('../swagger/swagger.yml');
+
+const models = require('./models');
+
+const events = require('./routes/events');
+const user = require('./routes/user');
+
 
 // prewarm the connection
 const mongoose = require('mongoose');
@@ -15,105 +15,18 @@ mongoose.connect(config.get('mongo.url'), config.get('mongo.connection_options')
 // required for testing 
 module.exports = app;
 
-// let config = {
-//   appRoot: __dirname
-// };
-
 // setup the middle wares
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(bodyParser.json());
-//app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-/**
- * set up standard logging for all requests
- */
-app.use(logfmt.requestLogger({elapsed: 'request.time'}, (req) => {
-  return {
-    'request.method': req.method,
-    'request.path': req.path
-  };
-}));
-
-
-/*
-// route middleware to make sure a user is logged in
-function isLoggedIn(req, res, next) {
-  // if user is authenticated in the session, carry on 
-  if (req.isAuthenticated())
-    return next();
-
-  // if they aren't return status of 401
-  res.status(401);
-}
-*/
-
-app.get('/event/search/:location/:startDate/:endDate', (req, res) => {
-  events
-    .search(req.params.location, req.params.startDate, req.params.endDate)
-    .then((result) => {
-      res.status(200).json(result);
-    })
-    .catch((err) => {
-      res.status(503).json(err);
-    });
-});
-
-// TODO : put in the passport authentication middle wares
-app.post('/event/upload', (req, res) => {
-  events
-    .save(req.body)
-    .then((result) => {
-      res.status(200).json(result);
-    })
-    .catch((err) => {
-      res.status(503).json(err);
-    });
-});
-
-/*
-app.post('/user/login', (req, res) => {
-  // TODO : use pass port to authenticate
-});
-*/
-
-app.post('/user/save', (req, res) => {
-  user
-    .save(req.body)
-    .then((result) => {
-      res.status(200).json(result);
-    })
-    .catch((err) => {
-      res.status(503).json(err);
-    });
-});
-
-app.get('/user/details/:id', (req, res) => {
-  user
-    .details(req.params.id)
-    .then((result) => {
-      res.status(200).json(result);
-    })
-    .catch((err) => {
-      res.status(503).json(err);
-    });
-});
-
-app.post('/user/registerevent', (req, res) => {
-  user
-    .registerEvent(req.body)
-    .then((result) => {
-      res.status(200).json(result);
-    })
-    .catch((err) => {
-      res.status(503).json(err);
-    });
-});
-
+/* set up custom routes */
+app.use('/user', user);
+app.use('/event', events);
 
 // start the express app
-const port = process.env.PORT || 9000;
+const port = config.get('PORT') || 9000;
 app.listen(port, () => {
   console.log(`runable event api - started on port ${port}!`);
 });

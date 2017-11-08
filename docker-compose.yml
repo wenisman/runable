@@ -10,7 +10,7 @@ services:
   events:
     build: events
     ports: 
-      - 9000:9000
+      - 9090:9090
     volumes:
       - ./events:/opt/runable/events
     links:

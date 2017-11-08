@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-console.log('loading user');
 
 const address = require('./address');
 const phone = require('./phone');
@@ -32,7 +31,7 @@ let user = new mongoose.Schema({
       id: String,
       token: String,
       user_name: String,
-      display_name:String
+      display_name: String
     }
   },
   contact: {
@@ -42,9 +41,7 @@ let user = new mongoose.Schema({
       phone.schema
     ]
   },
-  registrations: [
-    registration.schema
-  ]
+  registrations: [ registration.schema ]
 });
 
 module.exports = mongoose.model('User', user);
