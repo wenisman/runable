@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt-nodejs');
+console.log('loading user');
 
 const address = require('./address');
 const phone = require('./phone');
 const registration = require('./registration');
 
-let user = mongoose.Schema({
+
+let user = new mongoose.Schema({
   first_name: String,
   surname: String,
   account: {
@@ -36,6 +37,7 @@ let user = mongoose.Schema({
   },
   contact: {
     email: String,
+    address: address.schema,
     phones: [
       phone.schema
     ]

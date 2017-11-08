@@ -1,9 +1,10 @@
 {
   "parserOptions": {
-    "ecmaVersion": 6
+    "ecmaVersion": 8
   },
   "extends": "eslint:recommended",
   "rules": {
+    "no-console": 0,
     "no-extra-parens": ["error", "all"],
     "semi": ["error", "always"],
     "no-shadow": ["error"],

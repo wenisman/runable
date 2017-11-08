@@ -23,7 +23,7 @@ const registerevent = async (data) => {
         event_id: data.eventId,
         price_paid: data.pricePaid,
         registration_data: new Date()
-      })
+      });
 
       return user.save();
     });
@@ -33,4 +33,4 @@ module.exports = {
   save,
   details,
   registerevent
-}
+};

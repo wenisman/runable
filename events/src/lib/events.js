@@ -7,19 +7,31 @@ const setDate = (date, defaultDate) => {
   }
 
   return Date.parse(date);
-}
+};
 
 const search = async (location, startDate, endDate) => {
   let now = new Date();
   return Event.find({
-      location,
-      date: {
-        start: setDate(startDate, now),
-        end: setDate(endDate, new Date(now.setFullYear(now.getFullYear() + 1)))
+    $and: [
+      {
+        $or: [ 
+          { address: { city : location } }, 
+          { address: { state: location } }, 
+          { address: { country: location } }  
+        ]
+      },
+      {
+        event: {
+          registration: {
+            opening_date: setDate(startDate, now),
+            closing_date: setDate(endDate, new Date(now.setFullYear(now.getFullYear() + 1)))
+          }
+        }
       }
-    })
+    ],
+  })
     .exec();
-}
+};
 
 const save = async(data) => {
   let event = new Event({
@@ -49,4 +61,4 @@ const save = async(data) => {
 module.exports = {
   search,
   save
-}
+};

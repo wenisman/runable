@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const address = require('./address');
 const phone = require('./phone');
 
-let event = mongoose.Schema({
+let event = new mongoose.Schema({
   name: String,
   address: address.schema,
   contact: {
