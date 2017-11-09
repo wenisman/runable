@@ -30,7 +30,7 @@ const registerevent = async (data) => {
       user.registrations.push({
         event_id: data.event.id,
         price_paid: data.event.price_paid,
-        registration_data: new Date(),
+        registration_date: new Date(),
         status: 'registered'
       });
 

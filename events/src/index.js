@@ -2,11 +2,8 @@ const app = require('express')();
 const config = require('config');
 const bodyParser = require('body-parser');
 
-const models = require('./models');
-
 const events = require('./routes/events');
 const user = require('./routes/user');
-
 
 // prewarm the connection
 const mongoose = require('mongoose');

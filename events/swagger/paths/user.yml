@@ -26,6 +26,20 @@ login:
         description: Error
         schema:
           $ref: "#/definitions/ErrorResponse"
+save:
+  post:
+    operationId: save
+    consumes:
+      - application/json    
+    parameters:
+      - in: body
+        name: body
+        description: The login details of the user
+        schema:
+          $ref: "#/definitions/user"
+    responses:
+      "200":
+        description: Success
 
 details:
   get:
@@ -35,9 +49,9 @@ details:
     consumes:
       - application/json
     parameters:
-      - name: location
+      - name: id
         in: query
-        description: The location of the event
+        description: The local account id of the user
         required: true
         type: string
     responses:
@@ -61,8 +75,16 @@ registerevent:
             - eventId
             - pricePaid
           properties:
-            login_id: 
-              type: string
-            password:
-              type: string
+            event:
+              type: object
+              properties:
+                id: 
+                  type: string
+                price_paid: 
+                  type: number
+            user:
+              type: object
+              properties:
+                id:
+                  type: string
  
