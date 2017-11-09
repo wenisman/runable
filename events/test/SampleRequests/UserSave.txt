@@ -1,0 +1,26 @@
+POST http://localhost:9090/user/save
+Headers
+- Content-Type : application/json
+- Accept : application/json
+
+Body:
+{
+	"first_name": "sample",
+	"surname": "user",
+	"account": {
+		"local": {
+			"id": "sample_user",
+			"password": "ssh_secret",
+			"email": "sample@user.com"
+		}
+	},
+	"contact": {
+		"address": {
+			"line1": "1 suburbia lane",
+			"city": "suburbtown",
+			"state": "test state",
+			"country": "test country",
+			"post_code": "1111"
+		}
+	}
+}

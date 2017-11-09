@@ -1,0 +1,61 @@
+search:
+  get:
+    description: Returns a list of events by date and location
+    # used as the method name of the controller
+    operationId: search
+    consumes:
+      - application/json
+    parameters:
+      - name: location
+        in: query
+        description: The location of the event
+        required: true
+        type: string
+      - name: startDate
+        in: query
+        description: The start date for the event search
+        required: false
+        type: string
+      - name: endDate
+        in: query
+        description: The end date for the event search
+        required: false
+        type: string
+    responses:
+      "200":
+        description: Success
+        schema:
+          type: array
+          items: 
+            $ref: "#/definitions/event"
+      default:
+        description: Error
+        schema:
+          $ref: "#/definitions/ErrorResponse"
+
+upload:
+  post:
+    operationId: upload
+    consumes:
+      - application/json
+    parameters:
+      - in: body
+        name: body
+        description: the event to upload
+        schema:
+          type: object
+          required:
+            - location
+            - date
+          properties:
+            location: 
+              type: string
+            date:
+              type: string
+    responses:
+      201:
+        description: created
+      default:
+        description: Error
+        schema:
+          $ref: "#/definitions/ErrorResponse"

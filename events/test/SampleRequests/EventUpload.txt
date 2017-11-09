@@ -1,0 +1,31 @@
+POST : http://localhost:9090/event/upload
+Headers
+- Content-Type : application/json
+- Accept : application/json
+
+Body:
+{
+  "name": "sample event",
+  "id": "sample_event",
+  "description": {
+    "short": "sample event short description",
+    "long": "sample event long description"
+  },
+  "date": "06-01-2018",
+  "registration": {
+    "opening_date": "01-01-2018",
+    "closing_date": "03-01-2018",
+    "rrp": 150,
+    "member_price": 100
+  },
+  "address": {
+    "line1": "1 some street",
+    "city": "test city",
+    "state": "test state",
+    "country": "test country",
+    "post_code": "11111"
+  },
+  "contact": {
+    "email": "test@sampleevent.com.au"
+  }
+}

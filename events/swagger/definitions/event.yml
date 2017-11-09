@@ -1,0 +1,35 @@
+type: object
+properties:
+  name:
+    type: string
+  address:
+    ref: "#/definitions/address"
+  id:
+    type: string
+  date:
+    type: string
+  description:
+    type: object 
+    properties:
+      short: 
+        type: string
+      long: 
+        type: string
+      background_image:
+        type: string
+  registration:
+    type: object
+    required:
+      - opening_date
+      - closing_date
+      - member_price
+      - rrp
+    properties:
+      opening_date:
+        type: string
+      closing_date:
+        type: string
+      member_price:
+        type: number
+      rrp:
+        type: number

@@ -1,0 +1,14 @@
+type: object
+required:
+- event_id
+- price_paid
+- registration_date
+properties:
+  event_id:
+    type: integer
+  price_paid:
+    type: number
+  registration_date:
+    type: string
+  status:
+    type: string

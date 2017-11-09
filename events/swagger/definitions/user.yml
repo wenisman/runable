@@ -1,0 +1,70 @@
+type: object
+required:
+  - login_id
+properties:
+  first_name: 
+    type: string
+  surname:
+    type: string
+  contact:
+    type: object
+    properties:
+      address:
+        $ref: "#/definitions/address"
+      email:
+        type: string
+      phones:
+        type: array
+        items: 
+          $ref: "#/definitions/phone"
+  account:
+    type: object
+    properties:
+      local:
+        type: object
+        properties:
+          id:
+            type: string
+          password:
+            type: string
+          token: 
+            type: string
+          email:
+            type: string
+      google:
+        type: object
+        properties:
+          id:
+            type: string
+          name:
+            type: string
+          token: 
+            type: string
+          email:
+            type: string
+      facebook:
+        type: object
+        properties:
+          id:
+            type: string
+          name:
+            type: string
+          token: 
+            type: string
+          email:
+            type: string
+      twitter:
+        type: object
+        properties:
+          id:
+            type: string
+          user_name:
+            type: string
+          token: 
+            type: string
+          display_name:
+            type: string
+  registrations:
+    type: array
+    items:
+      $ref: "#/definitions/registration" 

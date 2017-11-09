@@ -1,0 +1,15 @@
+POST http://localhost:9090/user/registerevent
+Headers
+- Content-Type : application/json
+- Accept : application/json
+
+Body:
+{
+	"user": {
+		"id": "sample_user"
+	},
+	"event": {
+		"id": "sample_event",
+		"price_paid": 50
+	}
+}

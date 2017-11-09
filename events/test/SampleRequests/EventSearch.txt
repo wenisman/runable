@@ -1,0 +1,1 @@
+GET http://localhost:9090/event/search/test%20city/02-02-2018/03-03-2018

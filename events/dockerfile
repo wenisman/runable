@@ -6,12 +6,13 @@ ADD package.json .
 ADD package-lock.json .
 ADD .eslintrc .
 
-RUN npm install
+RUN npm install && \
+    npm install -g nodemon
 
-COPY . .
+COPY . / ./
 
-EXPOSE 9000
+EXPOSE 9090
 
 VOLUME [ "/opt/runable/events" ]
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "server"]

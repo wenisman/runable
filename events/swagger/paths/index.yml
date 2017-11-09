@@ -1,0 +1,20 @@
+/events/search:
+  $ref: ./events.yml#/search
+
+/events/upload:
+  $ref: ./events.yml#/upload
+
+/user/login:
+  $ref: ./user.yml#/login
+
+/user/save:
+  $ref: ./user.yml#/save
+
+/user/details:
+  $ref: ./user.yml#/details
+
+/user/registerevent:
+  $ref: ./user.yml#/registerevent
+
+/swagger:
+  x-swagger-pipe: swagger_raw
