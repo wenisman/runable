@@ -16,20 +16,28 @@ const search = async (location, startDate, endDate) => {
   console.log(`close date: ${testdate}`);
 
   return Event.find({
-    $and: [
+    $and: [ 
       {
         $or: [ 
-          { address: { city : location } }, 
-          { address: { state: location } }, 
-          { address: { country: location } }  
+          { 'address.city' : location },   
+          { 'address.state': location }, 
+          { 'address.country': location }  
         ]
       },
-      {
-        registration: {
-          opening_date: { $gte: setDate(startDate, now) },
-          closing_date: { $gte: setDate(endDate, new Date(now.setFullYear(now.getFullYear() + 1))) }
-        }
-      }
+      { 'registration.opening_date': { $lte: setDate(startDate, now) }},
+      { 'registration.closing_date': { $gte: setDate(endDate, new Date(now.setFullYear(now.getFullYear() + 1))) }}
+    ]
+  })
+    .exec();
+};
+
+const list = async (location) => {
+  console.log('location search: ', location);
+  return Event.find({
+    $or: [ 
+      { 'address.city' : location },   
+      { 'address.state': location }, 
+      { 'address.country': location }  
     ]
   })
     .exec();
@@ -42,6 +50,7 @@ const save = async(data) => {
 };
 
 module.exports = {
+  list,
   search,
   save
 };

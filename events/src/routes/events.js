@@ -1,6 +1,17 @@
 const router = require('express').Router();
 const events = require('../lib/events');
 
+router.get('/list/:location', (req, res) => {
+  events
+  .list(req.params.location)
+  .then((result) => {
+    res.status(200).json(result);
+  })
+  .catch((err) => {
+    res.status(503).json(err);
+  });
+});
+
 router.get('/search/:location/:startDate/:endDate', (req, res) => {
   events
     .search(req.params.location, req.params.startDate, req.params.endDate)
