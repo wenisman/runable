@@ -2,19 +2,10 @@ type: object
 properties:
   name:
     type: string
-  location:
-    type: object
-    required:
-      - country
-      - state
-      - city
-    properties:
-      country:
-        type: string
-      state:
-        type: string
-      city:
-        type: string
+  address:
+    ref: "#/definitions/address"
+  id:
+    type: string
   date:
     type: string
   description:
@@ -31,14 +22,14 @@ properties:
     required:
       - opening_date
       - closing_date
-      - price
+      - member_price
       - rrp
     properties:
       opening_date:
         type: string
       closing_date:
         type: string
-      price:
+      member_price:
         type: number
       rrp:
         type: number

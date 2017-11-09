@@ -10,3 +10,5 @@ properties:
     type: number
   registration_date:
     type: string
+  status:
+    type: string

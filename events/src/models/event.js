@@ -5,6 +5,8 @@ const phone = require('./phone');
 let event = new mongoose.Schema({
   name: String,
   address: address.schema,
+  date: Date,
+  id: String,
   contact: {
     email: String,
     phones: [

@@ -17,7 +17,7 @@ router.post('/user/login', (req, res) => {
 });
 */
 
-router.post('/user/save', (req, res) => {
+router.post('/save', (req, res) => {
   user
     .save(req.body)
     .then((result) => {
@@ -28,7 +28,7 @@ router.post('/user/save', (req, res) => {
     });
 });
 
-router.get('/user/details/:id', (req, res) => {
+router.get('/details/:id', (req, res) => {
   user
     .details(req.params.id)
     .then((result) => {
@@ -39,9 +39,9 @@ router.get('/user/details/:id', (req, res) => {
     });
 });
 
-router.post('/user/registerevent', (req, res) => {
+router.post('/registerevent', (req, res) => {
   user
-    .registerEvent(req.body)
+    .registerevent(req.body)
     .then((result) => {
       res.status(200).json(result);
     })

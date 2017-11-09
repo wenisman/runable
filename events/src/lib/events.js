@@ -1,5 +1,5 @@
 const Event = require('../models/event');
-
+const uuid = require('uuid/v4');
 
 const setDate = (date, defaultDate) => {
   if (!date) {
@@ -24,8 +24,8 @@ const search = async (location, startDate, endDate) => {
           { 'address.country': location }  
         ]
       },
-      { 'registration.opening_date': { $lte: setDate(startDate, now) }},
-      { 'registration.closing_date': { $gte: setDate(endDate, new Date(now.setFullYear(now.getFullYear() + 1))) }}
+      { 'date': { $gte: setDate(startDate, now) }},
+      { 'date': { $lte: setDate(endDate, new Date(now.setFullYear(now.getFullYear() + 1))) }}
     ]
   })
     .exec();
@@ -44,13 +44,20 @@ const list = async (location) => {
 };
 
 const save = async(data) => {
+  data.id = data.id || uuid();
+
   let event = new Event(data);
 
   return event.save();
 };
 
+const deleteAll = () => {
+  return Event.remove({});
+};
+
 module.exports = {
   list,
   search,
-  save
+  save,
+  deleteAll
 };

@@ -1,6 +1,17 @@
 const router = require('express').Router();
 const events = require('../lib/events');
 
+router.delete('/remove/all', (req, res) => {
+  events
+  .deleteAll()
+  .then((result) => {
+    res.status(200).json(result);
+  })
+  .catch((err) => {
+    res.status(503).json(err);
+  });
+});
+
 router.get('/list/:location', (req, res) => {
   events
   .list(req.params.location)
