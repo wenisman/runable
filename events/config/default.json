@@ -5,22 +5,5 @@
     "connection_options": {
       "poolSize": 10 
     }
-  },
-  "auth": {
-    "facebook": {
-      "clientId": "",
-      "clientSecret": "",
-      "callbackPath": "/auth/facebook/callback"
-    },
-    "google": {
-      "clientId": "",
-      "clientSecret": "",
-      "callbackPath": "/auth/google/callback"
-    },
-    "twitter": {
-      "clientId": "",
-      "clientSecret": "",
-      "callbackPath": "/auth/twitter/callback"
-    }
   }
 }
