@@ -1,10 +1,10 @@
-const googleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const User = require('../models/user');
 const config = require('config');
 const jwt = require('../lib/jwt');
 
 const setup = (passport) => {
-  passport.use('google', new googleStrategy({
+  passport.use('google', new GoogleStrategy({
       clientID: config.get('auth.google.clientId'),
       clientSecret: config.get('auth.google.clientSecret'),
       callbackUrl: config.get('auth.google.callbackUrl'),

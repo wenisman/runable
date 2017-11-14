@@ -1,0 +1,17 @@
+FROM node:latest
+
+WORKDIR /opt/runable/auth
+
+ADD package.json .
+ADD package-lock.json .
+ADD .eslintrc .
+
+RUN npm install
+
+COPY . / ./
+
+EXPOSE 9000
+
+VOLUME [ "/opt/runable/auth" ]
+
+CMD ["npm", "start"]

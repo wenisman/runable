@@ -1,9 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt-nodejs');
-
-const address = require('./address');
-const phone = require('./phone');
-const registration = require('./Registration');
+const bcrypt = require('bcryptjs');
 
 let user = mongoose.Schema({
   first_name: String,
@@ -31,7 +27,7 @@ let user = mongoose.Schema({
       id: String,
       token: String,
       user_name: String,
-      display_name:String
+      display_name: String
     }
   },
   contact: {
@@ -39,11 +35,11 @@ let user = mongoose.Schema({
   }
 });
 
-user.methods.generateHash = function(password) {
+user.methods.generateHash = function (password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-user.methods.validPassword = function(password) {
+user.methods.validPassword = function (password) {
   return bcrypt.compareSync(password, this.account.local.password);
 };
 

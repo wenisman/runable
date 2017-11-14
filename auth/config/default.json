@@ -1,0 +1,26 @@
+{
+  "PORT": 9090,
+  "mongo": {
+    "url": "mongodb://mongo:27017/runable",
+    "connection_options": {
+      "poolSize": 10 
+    }
+  },
+  "auth": {
+    "facebook": {
+      "clientId": "empty",
+      "clientSecret": "empty",
+      "callbackUrl": "/auth/facebook/callback"
+    },
+    "google": {
+      "clientId": "empty",
+      "clientSecret": "empty",
+      "callbackUrl": "/auth/google/callback"
+    },
+    "twitter": {
+      "clientId": "empty",
+      "clientSecret": "empty",
+      "callbackUrl": "/auth/twitter/callback"
+    }
+  }
+}
